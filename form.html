@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据绑定</title>
+</head>
+<body>
+<div id="vue">
+    <ul>
+        <my-li v-for="item in items" v-bind:item="item"></my-li>
+    </ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript">
+    Vue.component("my-li",{
+        props: ['item'],
+        template: "<li style='color:red;'>{{item}}</li>"
+    });
+
+    var vm = new Vue({
+        el: '#vue',
+        data: {
+            items: ["Lisa","米豆子","无心法师","雷武姐"]
+        }
+    });
+</script>
+</body>
+</html>
